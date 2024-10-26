@@ -8,8 +8,8 @@ export default {
     // deno-lint-ignore no-explicit-any
     plugins: [daisyui as any],
     daisyui: {
-        themes: ['cupcake', 'business'],
-        darkTheme: 'business',
+        themes: ['light', 'dark'],
+        darkTheme: 'dark',
         logs: false,
     },
 } satisfies Config

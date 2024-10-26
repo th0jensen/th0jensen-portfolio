@@ -1,60 +1,61 @@
 {
-  "lock": false,
-  "tasks": {
-    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
-    "manifest": "deno task cli manifest $(pwd)",
-    "start": "deno run -A --watch=static/,routes/ dev.ts",
-    "build": "deno run -A dev.ts build",
-    "preview": "deno run -A main.ts",
-    "update": "deno run -A -r https://fresh.deno.dev/update ."
-  },
-  "fmt": {
-    "useTabs": true,
-    "lineWidth": 80,
-    "indentWidth": 4,
-    "semiColons": false,
-    "singleQuote": true,
-    "proseWrap": "preserve",
+    "lock": false,
+    "tasks": {
+        "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
+        "manifest": "deno task cli manifest $(pwd)",
+        "start": "deno run -A --watch=static/,routes/ dev.ts",
+        "build": "deno run -A dev.ts build",
+        "preview": "deno run -A main.ts",
+        "update": "deno run -A -r https://fresh.deno.dev/update ."
+    },
+    "fmt": {
+        "useTabs": true,
+        "lineWidth": 80,
+        "indentWidth": 4,
+        "semiColons": false,
+        "singleQuote": true,
+        "proseWrap": "preserve",
+        "exclude": [
+            "generated",
+            "node_modules",
+            ".*"
+        ]
+    },
+    "lint": {
+        "rules": {
+            "tags": [
+                "fresh",
+                "recommended"
+            ]
+        }
+    },
     "exclude": [
-      "generated",
-      "node_modules",
-      ".*"
-    ]
-  },
-  "lint": {
-    "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ]
-    }
-  },
-  "exclude": [
-    "**/_fresh/*"
-  ],
-  "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
-    "$std/": "https://deno.land/std@0.216.0/",
-    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
-    "daisyui": "npm:daisyui@^4.12.13",
-    "preact": "https://esm.sh/preact@10.22.0",
-    "preact/": "https://esm.sh/preact@10.22.0/",
-    "tailwindcss": "npm:tailwindcss@3.4.1",
-    "tailwindcss/": "npm:/tailwindcss@3.4.1/",
-    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js"
-  },
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
-  },
-  "nodeModulesDir": "none",
-  "deploy": {
-    "project": "02d1034b-faed-4eb9-b436-d9b02655537a",
-    "exclude": [
-      "**/node_modules"
+        "**/_fresh/*"
     ],
-    "include": [],
-    "entrypoint": "main.ts"
-  }
+    "imports": {
+        "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+        "$std/": "https://deno.land/std@0.216.0/",
+        "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
+        "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
+        "daisyui": "npm:daisyui@^4.12.13",
+        "preact": "https://esm.sh/preact@10.22.0",
+        "preact/": "https://esm.sh/preact@10.22.0/",
+        "tailwindcss": "npm:tailwindcss@3.4.1",
+        "tailwindcss/": "npm:/tailwindcss@3.4.1/",
+        "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
+        "~/": "./"
+    },
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "jsxImportSource": "preact"
+    },
+    "nodeModulesDir": "none",
+    "deploy": {
+        "project": "02d1034b-faed-4eb9-b436-d9b02655537a",
+        "exclude": [
+            "**/node_modules"
+        ],
+        "include": [],
+        "entrypoint": "main.ts"
+    }
 }

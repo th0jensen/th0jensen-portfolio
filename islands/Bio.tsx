@@ -1,5 +1,5 @@
-import LangList from '../components/LangList.tsx'
-import { portfolioData as data } from '../data.ts'
+import LangList from '~/components/LangList.tsx'
+import { portfolioData as data } from '~/data.ts'
 
 export default function Bio() {
     // const sequence = [

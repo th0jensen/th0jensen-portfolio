@@ -24,6 +24,9 @@
             "language_servers": [
                 "deno"
             ]
+        },
+        "YAML": {
+            "enable_language_server": false
         }
     }
 }
