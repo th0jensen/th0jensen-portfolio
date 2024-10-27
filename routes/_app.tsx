@@ -8,6 +8,7 @@ export default function App({ Component }: PageProps) {
                     name='viewport'
                     content='width=device-width, initial-scale=1.0'
                 />
+                <script type='text/javascript' src='/darkMode.js' />
                 <title>Thomas Jensen</title>
                 <link rel='stylesheet' href='/styles.css' />
             </head>

@@ -35,6 +35,7 @@ export type Work = {
 
 export type Project = {
     name: string
+    status?: string
     technologies: string[]
     description: string
     source: {
@@ -106,7 +107,7 @@ export const portfolioData: Data = {
     ],
     experience: [
         {
-            title: 'Software Developer',
+            title: 'Frontend Developer',
             time: {
                 from: 'Jun 2022',
                 to: 'Oct 2023',
@@ -119,30 +120,34 @@ export const portfolioData: Data = {
     ],
     projects: [
         {
-            name: 'gitdonewithit',
-            technologies: ['rust'],
-            description: 'a git helper tool made in rust for personal uses',
+            name: 'Tradio',
+            status: 'Under Contruction',
+            technologies: ['TypeScript', 'SwiftUI', 'Deno', 'Postgres'],
+            description:
+                'A personalised trading platform built for the future with AI and security in mind.',
             source: {
                 type: 'github',
                 link: 'https://github.com/th0jensen/gitdonewithit',
             },
         },
         {
-            name: 'appleosophy app',
-            technologies: ['swift', 'swiftui'],
-            description: 'a news reader app made for appleosophy',
+            name: 'Appleosophy',
+            technologies: ['Swift', 'Objective-C', 'SwiftUI'],
+            description:
+                'The official iOS app for Applesophy, I built and shipped this app by myself in 6 months.',
             source: {
                 type: 'appstore',
                 link: 'https://apps.apple.com/us/app/appleosophy/id1635844078',
             },
         },
         {
-            name: 'gruber-darker.zed',
-            technologies: ['json', 'rust'],
-            description: 'a port of the emacs theme gruber darker to zed',
+            name: 'Flavorelle',
+            technologies: ['Next.js', 'TypeScript', 'tRPC', 'Zod'],
+            description:
+                'A self-hostable recipe manager app, made with simplicity and fun in mind!',
             source: {
                 type: 'github',
-                link: 'https://github.com/th0jensen/gruber-darker.zed',
+                link: 'https://github.com/th0jensen/flavorelle',
             },
         },
     ],

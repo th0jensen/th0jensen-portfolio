@@ -1,42 +1,49 @@
-import Layout from '~/components/hero/layout.tsx'
-import { portfolioData as data } from '~/data.ts'
+import type { Data } from '~/data.ts'
+import InfoCard from '~/islands/InfoCard.tsx'
+import Layout from '~/components/ComponentLayout.tsx'
 
-export default function Hero() {
-    const calculateAge = (): string => {
-        const [month, day, year] = data.about.birthday.split('-').map(Number)
-        const birthDate = new Date(year, month - 1, day)
-        const today = new Date()
+function calculateAge(birthday: string): number {
+    const [month, day, year] = birthday.split('-').map(Number)
+    const birthDate = new Date(year, month - 1, day)
+    const today = new Date()
 
-        let age = today.getFullYear() - birthDate.getFullYear()
-        const monthDiff = today.getMonth() - birthDate.getMonth()
-        const dayDiff = today.getDate() - birthDate.getDate()
+    let age = today.getFullYear() - birthDate.getFullYear()
+    const monthDiff = today.getMonth() - birthDate.getMonth()
 
-        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
-            age--
-        }
-
-        return age.toString()
+    if (
+        monthDiff < 0 ||
+        (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
+        age--
     }
 
+    return age
+}
+
+export default function Hero({ data }: { data: Data }) {
+    const age = calculateAge(data.about.birthday)
+
     return (
-        <Layout>
-            <div class='flex flex-col h-screen w-screen justify-center items-center'>
-                <img
-                    src='/headshot.jpg'
-                    class='relative right-24 top-12 h-96 rounded-2xl'
-                />
-                <div class='relative left-24 z-10 bg-base-200 px-16 py-12 rounded-2xl md:w-[32rem]'>
-                    <div class='flex flex-row flex-wrap justify-center align-center w-96'>
-                        <p>
-                            I am {data.about.firstName} {data.about.lastName}, a
-                            {' '}
-                            {calculateAge()}{' '}
-                            year old Software Developer, passionate about
-                            backend, services, and optimisation.
-                        </p>
+        <Layout id='hero'>
+            <section className='relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-background via-primary/10 to-secondary/20 dark:from-background dark:via-primary/5 dark:to-secondary/10'>
+                <div className='absolute inset-0 bg-grid-white/[0.02] dark:bg-grid-white/[0.05]' />
+                <div className='container relative mx-auto px-4 py-12 md:py-24 lg:py-32'>
+                    <div className='flex flex-col items-center justify-center lg:flex-row lg:items-start lg:justify-between'>
+                        <div className='mb-8 lg:mb-0 lg:w-1/2'>
+                            <img
+                                src='/headshot.jpg'
+                                alt={`${data.about.firstName} ${data.about.lastName}`}
+                                width={400}
+                                height={400}
+                                className='rounded-2xl shadow-xl ring-2 ring-primary/20 dark:ring-primary/10'
+                            />
+                        </div>
+                        <InfoCard data={data} age={age} />
                     </div>
                 </div>
-            </div>
+                <div className='absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent'>
+                </div>
+            </section>
         </Layout>
     )
 }
