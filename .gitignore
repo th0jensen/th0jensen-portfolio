@@ -5,6 +5,12 @@
 .env.production.local
 .env.local
 
+# macOS Junk Files
+.DS_Store
+
+# Webstorm
+.idea
+
 # Fresh build directory
 _fresh/
 # npm dependencies
