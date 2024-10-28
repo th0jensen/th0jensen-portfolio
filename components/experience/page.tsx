@@ -1,14 +1,7 @@
 import Layout from '~/components/ComponentLayout.tsx'
 import type { Experience } from '~/lib/data/types.ts'
-import { Card, CardContent } from '~/components/ui/card.tsx'
-import {
-    Timeline,
-    TimelineConnector,
-    TimelineHeader,
-    TimelineIcon,
-    TimelineItem,
-    TimelineTime,
-} from '~/components/ui/timeline.tsx'
+import { Timeline } from '~/components/ui/timeline.tsx'
+import Entry from '~/islands/Entry.tsx'
 
 export default function ExperiencePage(
     { experience }: { experience: Experience[] },
@@ -27,43 +20,10 @@ export default function ExperiencePage(
                 </h2>
                 <Timeline>
                     {sortedExperience.map((entry, index) => (
-                        <Entry
-                            key={index}
-                            entry={entry}
-                            // toggleExpand={toggleExpand}
-                            // expanded={expandedEntries[entry.date]}
-                        />
+                        <Entry key={index} entry={entry} />
                     ))}
                 </Timeline>
             </div>
         </Layout>
-    )
-}
-
-const Entry = (
-    { entry }: {
-        entry: Experience
-    },
-) => {
-    return (
-        <TimelineItem>
-            <TimelineConnector />
-            <TimelineHeader>
-                <TimelineTime>{entry.date}</TimelineTime>
-                <TimelineIcon />
-                <Card className='w-[calc(100%-6rem)] sm:w-fit'>
-                    <CardContent className='p-0'>
-                        <div className='inline-block flex flex-col justify-center p-4 max-w-72'>
-                            <h3 className='text-lg font-bold'>
-                                {entry.title}
-                            </h3>
-                            <p className='text-sm text-muted-foreground'>
-                                {entry.description}
-                            </p>
-                        </div>
-                    </CardContent>
-                </Card>
-            </TimelineHeader>
-        </TimelineItem>
     )
 }

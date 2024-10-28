@@ -20,7 +20,7 @@ export default function WorkPage({ projects }: { projects: Project[] }) {
 }
 
 const ProjectCard = ({ project }: { project: Project }) => (
-    <Card className='overflow-hidden'>
+    <Card>
         <CardContent className='p-0'>
             <div className='flex flex-col sm:flex-row gap-4 p-4'>
                 <div className='w-full sm:w-auto sm:flex-shrink-0'>
@@ -71,7 +71,8 @@ const ProjectCard = ({ project }: { project: Project }) => (
                             <Badge
                                 key={project.technologies[tech]}
                                 variant='outline'
-                                className={`text-xs ${
+                                className={'text-xs'}
+                                style={`background-color: ${
                                     project.technologies[tech]
                                 }`}
                             >

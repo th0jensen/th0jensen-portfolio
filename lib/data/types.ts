@@ -16,6 +16,7 @@ export interface Data {
 export interface Experience {
     title: string
     date: string
+    expanded: boolean
     description: string
 }
 

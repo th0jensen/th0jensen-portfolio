@@ -90,6 +90,7 @@ const TimelineIcon = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <div
         ref={ref}
+        style='box-shadow: hsl(var(--ring)) 0px 0px 7px 1px;'
         className={cn(
             'z-10 flex flex-col size-3 border bg-accent shadow-sm rounded-full',
             className,
