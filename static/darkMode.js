@@ -1,4 +1,4 @@
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)')
+const prefersDarkScheme = globalThis.matchMedia('(prefers-color-scheme: dark)')
 const currentTheme = localStorage.getItem('theme')
 
 if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {

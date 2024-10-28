@@ -2,7 +2,7 @@ import { Card, CardContent } from '~/components/ui/card.tsx'
 import Layout from '~/components/ComponentLayout.tsx'
 import { Badge } from '~/components/ui/badge.tsx'
 import { ArrowUpRightIcon, Construction } from 'lucide-preact'
-import type { Project } from '~/data.ts'
+import type { Project } from '~/lib/data/types.ts'
 
 export default function WorkPage({ projects }: { projects: Project[] }) {
     return (
@@ -22,23 +22,25 @@ export default function WorkPage({ projects }: { projects: Project[] }) {
 const ProjectCard = ({ project }: { project: Project }) => (
     <Card className='overflow-hidden'>
         <CardContent className='p-0'>
-            <div className='flex flex-col sm:flex-row gap-4 p-4 group'>
+            <div className='flex flex-col sm:flex-row gap-4 p-4'>
                 <div className='w-full sm:w-auto sm:flex-shrink-0'>
-                    <div className='relative aspect-square w-full sm:w-[250px] overflow-hidden rounded-lg flex justify-center items-center'>
-                        <div class='z-10 absolute inset-0 flex justify-center items-center'>
-                            {project.source?.type === 'appstore' && (
+                    <div className='relative aspect-square w-full sm:w-[250px] overflow-hidden rounded-lg flex justify-center items-center group'>
+                        {project.source?.type === 'appstore' && (
+                            <div class='z-10 w-full absolute inset-0 flex justify-center items-center overflow-hidden'>
+                                <div class='z-10 absolute rounded-full w-full h-full bg-gradient-radial from-black via-card to-card opacity-0 group-hover:opacity-60 transition-opacity duration-500 '>
+                                </div>
                                 <a
                                     href={project.source.link}
-                                    className='relative flex w-fit p-0 m-0 hidden group-hover:block transition-transform duration-300 bg-transparent'
+                                    class='z-20 relative hidden group-hover:block transition-transform duration-300 bg-transparent'
                                 >
                                     <img
                                         src={'/appstore.svg'}
                                         alt='App Store Image'
-                                        class='bg-transparent'
+                                        class=''
                                     />
                                 </a>
-                            )}
-                        </div>
+                            </div>
+                        )}
                         <img
                             src={project.imageURL}
                             alt={project.name}
@@ -65,11 +67,13 @@ const ProjectCard = ({ project }: { project: Project }) => (
                         {project.description}
                     </p>
                     <div className='flex justify-start flex-wrap gap-2'>
-                        {project.technologies.map((tech) => (
+                        {Object.keys(project.technologies).map((tech) => (
                             <Badge
-                                key={tech}
+                                key={project.technologies[tech]}
                                 variant='outline'
-                                className='text-xs'
+                                className={`text-xs ${
+                                    project.technologies[tech]
+                                }`}
                             >
                                 {tech}
                             </Badge>
@@ -83,7 +87,12 @@ const ProjectCard = ({ project }: { project: Project }) => (
 
 const CardHeader = ({ project }: { project: Project }) => {
     return (
-        <a href={project.source?.link} class='flex text-lg font-bold mb-2'>
+        <a
+            href={project.source?.link}
+            class={`flex text-lg font-bold mb-2 items-center ${
+                project.source ? 'hover:underline' : ''
+            }`}
+        >
             {project.name}
             {project.source?.link && <ArrowUpRightIcon size={'16'} />}
         </a>

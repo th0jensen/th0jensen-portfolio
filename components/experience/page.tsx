@@ -1,5 +1,5 @@
 import Layout from '~/components/ComponentLayout.tsx'
-import { type Experience } from '~/data.ts'
+import type { Experience } from '~/lib/data/types.ts'
 import { Card, CardContent } from '~/components/ui/card.tsx'
 import {
     Timeline,

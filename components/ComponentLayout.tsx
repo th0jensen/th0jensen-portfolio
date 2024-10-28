@@ -9,8 +9,9 @@ export default function ComponentLayout({ children, id }: LayoutProps) {
     return (
         <div
             id={id}
-            class='min-h-screen w-screen py-16 overflow-x-hidden'
+            class='min-h-screen w-screen pb-16 overflow-x-hidden'
         >
+            <div class='pb-16'></div>
             {children}
         </div>
     )

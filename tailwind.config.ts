@@ -17,6 +17,16 @@ export default {
         },
         extend: {
             colors: {
+                typescript: '#3178C6',
+                swiftui: '#F05138',
+                deno: '#000000',
+                postgres: '#336791',
+                swift: '#F05138',
+                'objective-c': '#007AFF',
+                wordpress: '#21759B',
+                'next-js': '#000000',
+                trpc: '#2596BE',
+                zod: '#00BFA5',
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',
@@ -59,7 +69,7 @@ export default {
                 md: `calc(var(--radius) - 2px)`,
                 sm: 'calc(var(--radius) - 4px)',
             },
-            display: ['group-hover'],
+            display: ['group-hover', 'logo-hover'],
             fontFamily: {
                 // sans: ['var(--font-sans)', ...fontFamily.sans],
             },

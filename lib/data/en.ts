@@ -1,37 +1,6 @@
-export interface Data {
-    about:
-        & {
-            [key in 'firstName' | 'lastName' | 'birthday']: string
-        }
-        & {
-            [key in 'humanLanguages' | 'computerLanguages']: string[]
-        }
-    tech: {
-        [key: string]: string[]
-    }
-    experience: Experience[]
-    projects: Project[]
-}
+import type { Data } from './types.ts'
 
-export interface Experience {
-    title: string
-    date: string
-    description: string
-}
-
-export interface Project {
-    name: string
-    status?: string
-    imageURL: string
-    technologies: string[]
-    description: string
-    source?: {
-        type: string
-        link: string
-    }
-}
-
-export const portfolioData: Data = {
+const data: Data = {
     about: {
         firstName: 'Thomas',
         lastName: 'Jensen',
@@ -107,14 +76,25 @@ export const portfolioData: Data = {
             name: 'Tradio',
             status: 'Under Contruction',
             imageURL: '/images/tradio.png',
-            technologies: ['TypeScript', 'SwiftUI', 'Deno', 'Postgres'],
+            technologies: {
+                'TypeScript': 'bg-typescript',
+                'SwiftUI': 'bg-swiftui',
+                'Deno': 'bg-deno',
+                'Postgres': 'bg-postgres',
+            },
             description:
                 'A personalised trading platform built for the future with AI and security in mind.',
         },
         {
             name: 'Appleosophy',
             imageURL: '/images/appleosophy.png',
-            technologies: ['Swift', 'Objective-C', 'SwiftUI', 'WordPress'],
+            technologies: {
+                'Swift': 'bg-swift',
+                'Objective-C': 'bg-objective-c',
+                'SwiftUI': 'bg-swiftui',
+                'WordPress': 'bg-wordpress',
+            },
+
             description:
                 'The official iOS app for Applesophy, which I built and shipped as the sole developer in 6 months. I used the pre-existing WordPress REST API as a backend.',
             source: {
@@ -125,7 +105,13 @@ export const portfolioData: Data = {
         {
             name: 'Flavorelle',
             imageURL: '/images/flavorelle.png',
-            technologies: ['Next.js', 'TypeScript', 'tRPC', 'Zod'],
+            technologies: {
+                'Next.js': 'bg-next-js',
+                'TypeScript': 'bg-typescript',
+                'tRPC': 'bg-trpc',
+                'Zod': 'bg-zod',
+            },
+
             description:
                 'A self-hostable recipe manager app, made with simplicity and fun in mind!',
             source: {
@@ -135,3 +121,5 @@ export const portfolioData: Data = {
         },
     ],
 }
+
+export default data
