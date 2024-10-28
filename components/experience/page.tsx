@@ -21,7 +21,10 @@ export default function ExperiencePage(
 
     return (
         <Layout id='experience'>
-            <div class='w-screen min-h-screen flex justify-center items-center'>
+            <div className='container mx-auto px-4 py-8 md:px-8 lg:px-16 justify-center items-center flex flex-col'>
+                <h2 className='text-2xl font-bold mb-6 md:mb-8'>
+                    My Experience
+                </h2>
                 <Timeline>
                     {sortedExperience.map((entry, index) => (
                         <Entry
@@ -48,9 +51,9 @@ const Entry = (
             <TimelineHeader>
                 <TimelineTime>{entry.date}</TimelineTime>
                 <TimelineIcon />
-                <Card>
+                <Card className='w-[calc(100%-6rem)] sm:w-fit'>
                     <CardContent className='p-0'>
-                        <div className='flex flex-col justify-center p-4 max-w-72'>
+                        <div className='inline-block flex flex-col justify-center p-4 max-w-72'>
                             <h3 className='text-lg font-bold'>
                                 {entry.title}
                             </h3>

@@ -25,7 +25,7 @@ export interface Project {
     imageURL: string
     technologies: string[]
     description: string
-    source: {
+    source?: {
         type: string
         link: string
     }
@@ -110,10 +110,6 @@ export const portfolioData: Data = {
             technologies: ['TypeScript', 'SwiftUI', 'Deno', 'Postgres'],
             description:
                 'A personalised trading platform built for the future with AI and security in mind.',
-            source: {
-                type: 'github',
-                link: 'https://github.com/th0jensen/gitdonewithit',
-            },
         },
         {
             name: 'Appleosophy',

@@ -51,11 +51,15 @@ export default {
                     foreground: 'hsl(var(--card-foreground))',
                 },
             },
+            backgroundImage: {
+                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            },
             borderRadius: {
                 lg: `var(--radius)`,
                 md: `calc(var(--radius) - 2px)`,
                 sm: 'calc(var(--radius) - 4px)',
             },
+            display: ['group-hover'],
             fontFamily: {
                 // sans: ['var(--font-sans)', ...fontFamily.sans],
             },

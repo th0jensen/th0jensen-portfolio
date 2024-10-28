@@ -4,9 +4,9 @@ import Footer from '~/components/Footer.tsx'
 
 export default function Layout({ Component }: PageProps) {
     return (
-        <div class='flex flex-col w-screen overflow-x-hidden'>
+        <div class='flex flex-col'>
             <Header />
-            <div class='flex-1 overflow-x-hidden'>
+            <div class='flex-1'>
                 <Component />
             </div>
             <Footer />

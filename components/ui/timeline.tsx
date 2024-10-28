@@ -7,7 +7,7 @@ const Timeline = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <ol
         ref={ref}
-        className={cn('flex flex-col relative left-8', className)}
+        className={cn('flex flex-col relative left-24', className)}
         {...props}
     />
 ))

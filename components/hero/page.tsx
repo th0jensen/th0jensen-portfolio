@@ -33,9 +33,7 @@ export default function Hero({ about }: { about: Data['about'] }) {
                             <img
                                 src='/headshot.jpg'
                                 alt={`${about.firstName} ${about.lastName}`}
-                                width={400}
-                                height={400}
-                                className='rounded-2xl shadow-xl ring-2 ring-primary/20 dark:ring-primary/10'
+                                className='rounded-2xl shadow-xl ring-2 w-72 md:w-96 ring-primary/20 dark:ring-primary/10'
                             />
                         </div>
                         <InfoCard about={about} age={age} />
