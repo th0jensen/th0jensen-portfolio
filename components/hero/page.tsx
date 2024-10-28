@@ -20,8 +20,8 @@ function calculateAge(birthday: string): number {
     return age
 }
 
-export default function Hero({ data }: { data: Data }) {
-    const age = calculateAge(data.about.birthday)
+export default function Hero({ about }: { about: Data['about'] }) {
+    const age = calculateAge(about.birthday)
 
     return (
         <Layout id='hero'>
@@ -32,13 +32,13 @@ export default function Hero({ data }: { data: Data }) {
                         <div className='mb-8 lg:mb-0 lg:w-1/2'>
                             <img
                                 src='/headshot.jpg'
-                                alt={`${data.about.firstName} ${data.about.lastName}`}
+                                alt={`${about.firstName} ${about.lastName}`}
                                 width={400}
                                 height={400}
                                 className='rounded-2xl shadow-xl ring-2 ring-primary/20 dark:ring-primary/10'
                             />
                         </div>
-                        <InfoCard data={data} age={age} />
+                        <InfoCard about={about} age={age} />
                     </div>
                 </div>
                 <div className='absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent'>

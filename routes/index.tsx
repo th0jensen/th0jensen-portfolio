@@ -7,9 +7,9 @@ import { portfolioData as data } from '~/data.ts'
 export default function Home() {
     return (
         <div class='flex flex-col items-center justify-center overflow-x-hidden'>
-            <Hero data={data} />
-            <Work data={data} />
-            <Experience />
+            <Hero about={data.about} />
+            <Work projects={data.projects} />
+            <Experience experience={data.experience} />
             <Projects />
         </div>
     )

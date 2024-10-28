@@ -16,7 +16,7 @@ export default function Header() {
     })
 
     return (
-        <header className='fixed top-0 left-0 right-0 h-16 w-full bg-white dark:bg-gray-800 shadow-md z-50'>
+        <header className='fixed top-0 left-0 right-0 h-16 backdrop-blur-sm bg-card/90 shadow-md z-50'>
             <div className='container h-full mx-auto px-4 flex items-center justify-between'>
                 <nav className='flex items-center space-x-4'>
                     <a

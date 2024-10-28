@@ -1,4 +1,4 @@
-export type Data = {
+export interface Data {
     about:
         & {
             [key in 'firstName' | 'lastName' | 'birthday']: string
@@ -9,33 +9,20 @@ export type Data = {
     tech: {
         [key: string]: string[]
     }
-    education: School[]
-    experience: Work[]
+    experience: Experience[]
     projects: Project[]
 }
 
-export type School = {
-    time: {
-        [key in 'from' | 'to']: string
-    }
-    school: string
-    course: string
-    classes: string[]
-}
-
-export type Work = {
+export interface Experience {
     title: string
-    time: {
-        [key in 'from' | 'to']: string
-    }
-    employer: string
-    location: string
+    date: string
     description: string
 }
 
-export type Project = {
+export interface Project {
     name: string
     status?: string
+    imageURL: string
     technologies: string[]
     description: string
     source: {
@@ -71,57 +58,55 @@ export const portfolioData: Data = {
             'Linux',
         ],
     },
-    education: [
-        {
-            time: {
-                from: 'Apr 2024',
-                to: 'Oct 2024',
-            },
-            school: 'Boolean UK',
-            course: 'Software Development',
-            classes: [
-                'Javascript',
-                'HTML',
-                'React',
-                'Node.js',
-                'PostgreSQL',
-                'Express',
-            ],
-        },
-        {
-            time: {
-                from: 'Aug 2020',
-                to: 'Jan 2022',
-            },
-            school: 'Arendal High School',
-            course: 'International Baccaleureate',
-            classes: [
-                'Physics HL',
-                'Mathematics AA SL',
-                'Chemistry HL',
-                'Global Politics SL',
-                'Norwegian HL',
-                'English SL',
-            ],
-        },
-    ],
     experience: [
         {
-            title: 'Frontend Developer',
-            time: {
-                from: 'Jun 2022',
-                to: 'Oct 2023',
-            },
-            employer: 'Redfruit Media LLC',
-            location: 'Austin, TX - Remote',
+            title: 'Joined Applesophy',
+            date: 'Dec 2021',
             description:
-                'Primarily worked on developing the appleosophy app for iOS and iPad, released in December 2022',
+                'Wrote articles primarily about Apple, alongside reviews of different tech gadgets.',
+        },
+        {
+            title: 'Learning SwiftUI',
+            date: 'June 2022',
+            description:
+                'Started working on the Appleosophy iOS app, an immense undertaking; especially when considering that I knew nothing about either SwiftUI, Swift or Objective-C.',
+        },
+        {
+            title: 'Appleosophy hits Testflight',
+            date: 'Sep 2022',
+            description:
+                'The Appleosophy app was ready for beta testers after 3 months of learning and developing in SwiftUI.',
+        },
+        {
+            title: 'Appleosophy 1.0 released',
+            date: 'Dec 2022',
+            description:
+                'My first iOS app is launched on the App Store after 3 months of internal and external beta testing.',
+        },
+        {
+            title: 'Joined Boolean UK',
+            date: 'Apr 2024',
+            description:
+                'Started the intensive 6-month Full Stack Software Developer course at Boolean UK.',
+        },
+        {
+            title: 'Started working on Tradio',
+            date: 'May 2024',
+            description:
+                'Started  Tradio, a personalised trading platform developed together with Shreyash Gupta.',
+        },
+        {
+            title: 'Boolean UK Alumni',
+            date: 'Oct 2024',
+            description:
+                'Graduated from the Full Stack Software Developer course at Boolean UK',
         },
     ],
     projects: [
         {
             name: 'Tradio',
             status: 'Under Contruction',
+            imageURL: '/images/tradio.png',
             technologies: ['TypeScript', 'SwiftUI', 'Deno', 'Postgres'],
             description:
                 'A personalised trading platform built for the future with AI and security in mind.',
@@ -132,9 +117,10 @@ export const portfolioData: Data = {
         },
         {
             name: 'Appleosophy',
-            technologies: ['Swift', 'Objective-C', 'SwiftUI'],
+            imageURL: '/images/appleosophy.png',
+            technologies: ['Swift', 'Objective-C', 'SwiftUI', 'WordPress'],
             description:
-                'The official iOS app for Applesophy, I built and shipped this app by myself in 6 months.',
+                'The official iOS app for Applesophy, which I built and shipped as the sole developer in 6 months. I used the pre-existing WordPress REST API as a backend.',
             source: {
                 type: 'appstore',
                 link: 'https://apps.apple.com/us/app/appleosophy/id1635844078',
@@ -142,6 +128,7 @@ export const portfolioData: Data = {
         },
         {
             name: 'Flavorelle',
+            imageURL: '/images/flavorelle.png',
             technologies: ['Next.js', 'TypeScript', 'tRPC', 'Zod'],
             description:
                 'A self-hostable recipe manager app, made with simplicity and fun in mind!',

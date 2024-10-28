@@ -4,12 +4,14 @@ import { ArrowRight } from 'lucide-preact'
 import * as React from 'react'
 import type { Data } from '~/data.ts'
 
-const InfoCard: React.FC = ({ data, age }: { data: Data; age: number }) => {
+const InfoCard: React.FC = (
+    { about, age }: { about: Data['about']; age: number },
+) => {
     return (
         <Card className='lg:w-1/2 bg-background/80 backdrop-blur-sm dark:bg-background/60'>
             <CardContent className='p-6 md:p-8'>
                 <h1 className='mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent'>
-                    {data.about.firstName} {data.about.lastName}
+                    {about.firstName} {about.lastName}
                 </h1>
                 <p className='mb-6 text-xl text-muted-foreground md:text-2xl'>
                     {age} year old Software Developer
