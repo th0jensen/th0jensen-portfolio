@@ -32,3 +32,4 @@ jobs:
           project: "th0jensen-portfolio"
           entrypoint: "main.ts"
           root: "."
+          include: "./static/wasm/rs_lib_bg.wasm"
