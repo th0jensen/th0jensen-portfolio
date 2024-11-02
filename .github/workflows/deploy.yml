@@ -30,6 +30,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "th0jensen-portfolio"
-          entrypoint: "./main.ts"
+          entrypoint: "main.ts"
           root: "."
-          include: "./static"
