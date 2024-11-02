@@ -30,6 +30,8 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "th0jensen-portfolio"
-          entrypoint: "main.ts"
+          entrypoint: "./main.ts"
           root: "."
-          include: "./static/wasm/rs_lib_bg.wasm"
+          include: |
+                main.ts
+                ./static/wasm/rs_lib_bg.wasm
