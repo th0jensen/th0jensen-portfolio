@@ -69,7 +69,10 @@
         "exclude": [
             "**/node_modules"
         ],
-        "include": [],
+        "include": [
+            "static",
+            "static/wasm"
+        ],
         "entrypoint": "main.ts"
     }
 }
