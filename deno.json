@@ -6,7 +6,8 @@
         "start": "deno run -A --watch=static/,routes/ dev.ts",
         "build": "deno run -A dev.ts build",
         "preview": "deno run -A main.ts",
-        "update": "deno run -A -r https://fresh.deno.dev/update ."
+        "update": "deno run -A -r https://fresh.deno.dev/update .",
+        "wasmbuild": "cd rs_lib && wasm-pack build --target web --out-dir ../static/wasm"
     },
     "fmt": {
         "useTabs": true,
@@ -39,9 +40,11 @@
         "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
         "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
         "@radix-ui/react-slot": "npm:@radix-ui/react-slot@^1.1.0",
+        "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
         "class-variance-authority": "npm:class-variance-authority@^0.7.0",
         "clsx": "npm:clsx@^2.1.1",
         "daisyui": "npm:daisyui@^4.12.13",
+        "dotenv": "npm:dotenv@^16.4.5",
         "lucide-preact": "npm:lucide-preact@^0.453.0",
         "preact": "https://esm.sh/preact@10.22.0",
         "preact/": "https://esm.sh/preact@10.22.0/",

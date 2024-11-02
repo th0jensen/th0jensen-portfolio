@@ -13,5 +13,11 @@
 
 # Fresh build directory
 _fresh/
+
 # npm dependencies
 node_modules/
+/target
+
+# Rust
+*.lock
+.rustfmt.*

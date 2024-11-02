@@ -67,9 +67,12 @@ const ProjectCard = ({ project }: { project: Project }) => (
                         {project.description}
                     </p>
                     <div className='flex justify-start flex-wrap gap-2'>
-                        {Object.keys(project.technologies).map((tech) => (
+                        {Object.keys(project.technologies).map((
+                            tech,
+                            index,
+                        ) => (
                             <Badge
-                                key={project.technologies[tech]}
+                                key={index}
                                 variant='outline'
                                 className={'text-xs'}
                                 style={`background-color: ${

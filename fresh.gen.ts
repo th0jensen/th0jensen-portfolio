@@ -8,6 +8,7 @@ import * as $_layout from './routes/_layout.tsx'
 import * as $index from './routes/index.tsx'
 import * as $Entry from './islands/Entry.tsx'
 import * as $Header from './islands/Header.tsx'
+import * as $WasmCanvas from './islands/WasmCanvas.tsx'
 import type { Manifest } from '$fresh/server.ts'
 
 const manifest = {
@@ -20,6 +21,7 @@ const manifest = {
 	islands: {
 		'./islands/Entry.tsx': $Entry,
 		'./islands/Header.tsx': $Header,
+		'./islands/WasmCanvas.tsx': $WasmCanvas,
 	},
 	baseUrl: import.meta.url,
 } satisfies Manifest

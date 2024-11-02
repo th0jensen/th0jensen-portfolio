@@ -9,6 +9,7 @@ export default function App({ Component }: PageProps) {
                     content='width=device-width, initial-scale=1.0'
                 />
                 <script type='text/javascript' src='/darkMode.js' />
+                <script type='application/wasm' src='/wasm/rs_lib_bg.wasm' />
                 <title>Thomas Jensen</title>
                 <link rel='stylesheet' href='/styles.css' />
             </head>
