@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'preact/hooks'
-import init, { run_bevy_app } from '~/static/wasm/rs_lib.js'
+import init, { run_bevy_app } from 'wasmModule'
 
 export default function WasmCanvas() {
     const canvasRef = useRef<HTMLCanvasElement>(null)
