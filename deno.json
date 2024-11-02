@@ -30,6 +30,10 @@
             ]
         }
     },
+    "include": [
+        "./static",
+        "./static/wasm"
+    ],
     "exclude": [
         "**/_fresh/*",
         "components/ui"
@@ -70,8 +74,8 @@
             "**/node_modules"
         ],
         "include": [
-            "static",
-            "static/wasm"
+            "./static",
+            "./static/wasm"
         ],
         "entrypoint": "main.ts"
     }
