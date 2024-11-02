@@ -6,7 +6,6 @@ import * as $_404 from './routes/_404.tsx'
 import * as $_app from './routes/_app.tsx'
 import * as $_layout from './routes/_layout.tsx'
 import * as $index from './routes/index.tsx'
-import * as $wasm_path_ from './routes/wasm/[path].ts'
 import * as $Entry from './islands/Entry.tsx'
 import * as $Header from './islands/Header.tsx'
 import * as $WasmCanvas from './islands/WasmCanvas.tsx'
@@ -18,7 +17,6 @@ const manifest = {
 		'./routes/_app.tsx': $_app,
 		'./routes/_layout.tsx': $_layout,
 		'./routes/index.tsx': $index,
-		'./routes/wasm/[path].ts': $wasm_path_,
 	},
 	islands: {
 		'./islands/Entry.tsx': $Entry,
