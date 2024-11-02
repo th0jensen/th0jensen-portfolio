@@ -56,7 +56,7 @@
         "tailwindcss-animate": "npm:tailwindcss-animate@^1.0.7",
         "tailwindcss/": "npm:/tailwindcss@3.4.1/",
         "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
-        "wasmModule": "./static/wasm/rs_lib.js",
+        "wasmModule": "./lib/wasm/rs_lib.js",
         "~/": "./"
     },
     "compilerOptions": {
