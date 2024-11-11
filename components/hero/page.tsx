@@ -74,13 +74,13 @@ const InfoCard = (
 							variant={'ghost'}
 							href={'https://github.com/th0jensen'}
 						>
-							<Github />
+							<Github /> Github
 						</Link>
 						<Link
 							variant={'ghost'}
 							href={'https://www.linkedin.com/in/thomas-jensen-75a488208/'}
 						>
-							<Linkedin />
+							<Linkedin /> LinkedIn
 						</Link>
 					</div>
 				</div>

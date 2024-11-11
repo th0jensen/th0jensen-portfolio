@@ -63,13 +63,13 @@ const data: Data = {
 			description:
 				'Started the intensive 6-month Full Stack Software Developer course at Boolean UK.',
 		},
-		{
-			title: 'Started working on Tradio',
-			date: 'May 2024',
-			expanded: false,
-			description:
-				'Started  Tradio, a personalised trading platform developed together with Shreyash Gupta.',
-		},
+		// {
+		// 	title: 'Started working on Tradio',
+		// 	date: 'May 2024',
+		// 	expanded: false,
+		// 	description:
+		// 		'Started  Tradio, a personalised trading platform developed together with Shreyash Gupta.',
+		// },
 		{
 			title: 'Boolean UK Alumni',
 			date: 'Oct 2024',
@@ -79,19 +79,19 @@ const data: Data = {
 		},
 	],
 	projects: [
-		{
-			name: 'Tradio',
-			status: 'Under Construction',
-			imageURL: '/images/tradio.png',
-			technologies: {
-				'TypeScript': '#3178C6',
-				'SwiftUI': '#F05138',
-				'Deno': '#000000',
-				'Postgres': '#336791',
-			},
-			description:
-				'A personalised trading platform built for the future with AI and security in mind.',
-		},
+		// {
+		// 	name: 'Tradio',
+		// 	status: 'Under Construction',
+		// 	imageURL: '/images/tradio.png',
+		// 	technologies: {
+		// 		'TypeScript': '#3178C6',
+		// 		'SwiftUI': '#F05138',
+		// 		'Deno': '#000000',
+		// 		'Postgres': '#336791',
+		// 	},
+		// 	description:
+		// 		'A personalised trading platform built for the future with AI and security in mind.',
+		// },
 		{
 			name: 'Appleosophy',
 			imageURL: '/images/appleosophy.png',
