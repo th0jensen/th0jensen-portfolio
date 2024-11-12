@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-	user-select: none;
-	user-drag: none;
-	app-region: no-drag;
+.invert {
+   -webkit-filter: invert(100%);
+   filter: invert(100%);
+}
+
+.no-invert {
+   -webkit-filter: invert(0%) !important;
+   filter: invert(0%) !important;
 }
 
 @layer base {

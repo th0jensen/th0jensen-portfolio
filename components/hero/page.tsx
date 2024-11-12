@@ -1,90 +1,117 @@
-import type { Data } from '~/lib/data/types.ts'
-import Layout from '~/components/ComponentLayout.tsx'
-import { Card, CardContent } from '~/components/ui/card.tsx'
-import { Link } from '~/components/ui/button.tsx'
-import { ArrowRight, Github, Linkedin } from 'lucide-preact'
+import { h } from "preact";
+import { ArrowRight, Github, Linkedin } from "lucide-preact";
+import { Button } from "~/components/ui/button.tsx";
+import { Card } from "~/components/ui/card.tsx";
+import Layout from "~/components/ComponentLayout.tsx"
 
 function calculateAge(birthday: string): number {
-	const [month, day, year] = birthday.split('-').map(Number)
-	const birthDate = new Date(year, month - 1, day)
-	const today = new Date()
+  const [month, day, year] = birthday.split("-").map(Number);
+  const birthDate = new Date(year, month - 1, day);
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
 
-	let age = today.getFullYear() - birthDate.getFullYear()
-	const monthDiff = today.getMonth() - birthDate.getMonth()
-
-	if (
-		monthDiff < 0 ||
-		(monthDiff === 0 && today.getDate() < birthDate.getDate())
-	) {
-		age--
-	}
-
-	return age
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
 }
 
 export default function Hero({ about }: { about: Data['about'] }) {
-	const age = calculateAge(about.birthday)
+  const age = calculateAge(about.birthday);
 
-	return (
-		<Layout id='hero'>
-			<section className='relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-background via-primary/10 to-secondary/20 dark:from-background dark:via-primary/5 dark:to-secondary/10'>
-				<div className='absolute inset-0 bg-grid-white/[0.02] dark:bg-grid-white/[0.05]' />
-				<div className='container relative mx-auto px-8 py-24 lg:py-32'>
-					<div className='flex flex-col items-center justify-center lg:flex-row lg:items-center lg:justify-around'>
-						<div className='mb-8 lg:mb-0 lg:w-1/2'>
-							<img
-								src='/headshot.jpg'
-								alt={`${about.firstName} ${about.lastName}`}
-								className='rounded-2xl ring-2 w-72 md:w-96 ring-primary/20 dark:ring-primary/10'
-								style='box-shadow: hsl(var(--ring)) 0px 0px 15px 5px;'
-							/>
-						</div>
-						<InfoCard about={about} age={age} />
-					</div>
-				</div>
-				<div className='absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent'>
-				</div>
-			</section>
-		</Layout>
-	)
-}
+  return (
+    <Layout id={"hero"}>
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
-const InfoCard = (
-	{ about, age }: { about: Data['about']; age: number },
-) => {
-	return (
-		<Card className='lg:w-1/2 bg-background/80 backdrop-blur-sm dark:bg-background -translate-y-24 relative md:block md:translate-y-0'>
-			<CardContent className='p-6 md:p-8'>
-				<h1 className='mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent'>
-					{about.firstName} {about.lastName}
-				</h1>
-				<p className='mb-6 text-xl text-muted-foreground md:text-2xl'>
-					{age} year old Software Developer
-				</p>
-				<p className='mb-8 text-lg md:text-xl'>
-					{'Passionate about backend, services, and optimisation.'}
-				</p>
-				<div class='flex w-full gap-4'>
-					<Link href={'/#work'}>
-						View My Work
-						<ArrowRight className='ml-2 h-4 w-4 transition-transform' />
-					</Link>
-					<div class='flex gap-2'>
-						<Link
-							variant={'ghost'}
-							href={'https://github.com/th0jensen'}
-						>
-							<Github /> Github
-						</Link>
-						<Link
-							variant={'ghost'}
-							href={'https://www.linkedin.com/in/thomas-jensen-75a488208/'}
-						>
-							<Linkedin /> LinkedIn
-						</Link>
-					</div>
-				</div>
-			</CardContent>
-		</Card>
-	)
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-fadeInUp {
+          animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .animate-fadeInScale {
+          animation: fadeInScale 0.5s ease-out forwards;
+        }
+      `}</style>
+
+      <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 via-zinc-100/50 to-zinc-200/50 dark:from-zinc-950 dark:via-zinc-900/50 dark:to-zinc-800/50 light:invert dark:no-invert" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1730388155950-5152d33f9aeb?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`}} />
+
+      {/* Animated background shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -left-4 top-1/4 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute right-0 top-1/2 h-96 w-96 rounded-full bg-secondary/10 blur-3xl" />
+      </div>
+
+      <div className="container relative mx-auto px-4 py-20 lg:py-32">
+        <div className="flex flex-col-reverse items-center gap-12 lg:flex-row lg:items-center lg:justify-between">
+          {/* Info Card */}
+          <div className="w-full lg:w-1/2 animate-fadeInUp">
+            <Card className="overflow-hidden bg-white/80 p-8 backdrop-blur-sm dark:bg-zinc-900/80">
+              <h1 className="mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl lg:text-6xl">
+                {about.firstName} {about.lastName}
+              </h1>
+
+              <p className="mb-6 text-xl text-muted-foreground md:text-2xl">
+                {age} year old Software Developer
+              </p>
+
+              <p className="mb-8 text-lg text-foreground/80 md:text-xl">
+                {about.description || "Passionate about backend, services, and optimisation."}
+              </p>
+
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <Button className="group" size="lg">
+                  View My Work
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+
+                <div className="flex gap-2">
+                  <Button variant="outline" size="lg">
+                    <Github className="mr-2 h-5 w-5" />
+                    Github
+                  </Button>
+                  <Button variant="outline" size="lg">
+                    <Linkedin className="mr-2 h-5 w-5" />
+                    LinkedIn
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Profile Image */}
+          <div className="w-full lg:w-1/2 animate-fadeInScale">
+            <div className="relative mx-auto w-72 md:w-96">
+              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-primary to-secondary opacity-30 blur" />
+              <img
+                src="/headshot.jpg"
+                alt="Profile"
+                className="relative rounded-2xl object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
 }

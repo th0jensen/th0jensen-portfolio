@@ -52,7 +52,7 @@ export default function Header() {
 						</Button>
 					</div>
 					<div className={`${displayNav ? 'hidden' : 'block'} md:block mr-4`}>
-						<Link variant='ghost' size='sm' href={'#hero'}>
+						<Link variant='ghost' size='sm' href={'#hero'} className="font-bold">
 							Thomas Jensen
 						</Link>
 					</div>
@@ -69,7 +69,7 @@ export default function Header() {
 					</div>
 				</nav>
 				<div className='flex items-center space-x-2'>
-					<Link variant='ghost' size='sm' href={'#work'}>
+					<Link variant='ghost' size='sm' href={'mailto:thomas.jensen_@outlook.com'} target={"_blank"}>
 						Contact Me
 					</Link>
 					<Button
